@@ -243,163 +243,139 @@
     }
   }
  
-  // ===== INTERACTIVE WISHES =====
+ // ===== WISH DATA =====
 
 const birthdayWishes = [
-
   {
-    emoji:"✨",
+    image:"photos/photo1.jpg",
     title:"Adventure",
     text:"May your 25th year be full of places and moments that take your breath away."
   },
-
   {
-    emoji:"🌸",
+    image:"photos/photo2.jpg",
     title:"Joy",
     text:"The kind of deep, quiet happiness that settles into your bones and stays."
   },
-
   {
-    emoji:"💫",
+    image:"pics/growth.jpg",
     title:"Growth",
     text:"Every dream you're brave enough to chase — may it find you."
   },
-
   {
-    emoji:"🍰",
+    image:"pics/sweet.jpg",
     title:"Sweetness",
     text:"More cake, more laughter, more of all the things that make you smile."
   },
-
   {
-    emoji:"🌙",
+    image:"pics/rest.jpg",
     title:"Rest",
     text:"Permission to slow down, breathe, and simply be."
   },
-
   {
-    emoji:"💖",
+    image:"photos/photo6.jpg",
     title:"Love",
     text:"All the love you give so freely — reflected back to you ten times over."
   },
-
   {
-    emoji:"🌟",
+    image:"pics/courage.jpg",
     title:"Courage",
-    text:"The boldness to say yes to the things that scare you a little — those are the ones worth doing."
+    text:"The boldness to say yes to the things that scare you a little, those are the ones worth doing."
   },
-
   {
-    emoji:"🎶",
+    image:"pics/music.jpg",
     title:"Music",
-    text:"May every song that finds you this year feel like it was written just for your soul."
+    text:"May every song feel like it was written just for your soul."
   },
-
   {
-    emoji:"🌺",
+    image:"photos/photo9.jpg",
     title:"Beauty",
-    text:"Not just the kind the world sees — but the rare, radiant kind that lives inside you."
+    text:"The rare kind that lives inside you and shines through everything."
   },
-
   {
-    emoji:"🤝",
+    image:"pics/touch1.jpg",
     title:"Connection",
     text:"Deeper conversations, truer friendships, and bonds that feel like home."
   },
-
   {
-    emoji:"🌊",
+    image:"pics/peace.jpg",
     title:"Peace",
-    text:"A stillness in your heart that no chaos can touch. You deserve that kind of calm."
+    text:"A calm no chaos can touch. A quiet you can always return to, no matter what’s happening around you."
   },
-
   {
-    emoji:"💡",
+    image:"pics/clarity.jpg",
     title:"Clarity",
-    text:"May 25 bring you answers to questions you've been carrying quietly for far too long."
+    text:"May everything you’ve been wondering finally make sense."
   },
-
   {
-    emoji:"🎨",
+    image:"photos/photo13.jpg",
     title:"Creativity",
     text:"Space to create, to colour outside the lines, and to express everything you feel inside."
   },
-
   {
-    emoji:"🌍",
+    image:"pics/horizons.jpg",
     title:"Horizons",
-    text:"New places, new perspectives, new versions of yourself waiting just around the corner."
+    text:"New places and new versions of you waiting ahead."
   },
-
   {
-    emoji:"🦋",
+    image:"pics/transformation.jpg",
     title:"Transformation",
-    text:"Twenty-five is not an ending — it is the most beautiful kind of beginning."
+    text:"This is not an ending — it’s your beginning."
   },
-
   {
-    emoji:"☕",
+    image:"pics/comfort.jpg",
     title:"Comfort",
-    text:"Warm mornings, soft moments, and all the little things that make life feel like a hug."
+    text:"Soft mornings and warm moments that feel like home."
   },
-
   {
-    emoji:"🏆",
+    image:"pics/success.jpg",
     title:"Success",
-    text:"On your own terms, in your own time — the kind that truly satisfies."
+    text:"On your terms, in your time, in your way."
   },
-
   {
-    emoji:"🌈",
+    image:"pics/hope.jpg",
     title:"Hope",
-    text:"That no matter what comes, you always find the light waiting on the other side."
+    text:"Light always finds you, even in quiet moments."
   },
-
   {
-    emoji:"🫶",
+    image:"pics/belonging.jpg",
     title:"Belonging",
     text:"May you always know, without a single doubt, that you are deeply wanted and needed here."
   },
-
   {
-    emoji:"💪",
+    image:"pics/strength.jpg",
     title:"Strength",
     text:"You are so much stronger than you know. May this year remind you of that every single day."
   },
-
   {
-    emoji:"🎁",
+    image:"pics/surprise.jpg",
     title:"Surprise",
     text:"The kind of unexpected moments that make your heart leap — the best stories always start that way."
   },
-
   {
-    emoji:"🌻",
+    image:"pics/warmth.jpg",
     title:"Warmth",
-    text:"People who pour into you as much as you pour into them. You deserve that overflow."
+    text:"People who pour into you the way you pour into others. You deserve that overflow."
   },
-
   {
-    emoji:"🥂",
+    image:"pics/celebration.jpg",
     title:"Celebration",
     text:"More reasons to raise a glass, dance a little, and remember how good it is to be alive."
   },
-
   {
-    emoji:"🔮",
+    image:"pics/magic.jpg",
     title:"Magic",
     text:"The kind that doesn't need explanation — the feeling that something wonderful is always on its way."
   },
-
   {
-    emoji:"❤️",
+    image:"photos/photo25.jpg",
     title:"You",
-    text:"Above all else — more of your light, your laugh, your love. The world needs every bit of it."
+    text:"Above all else — more of you. More of your light, your laugh, your love. The world needs every bit of it."
   }
-
 ];
 
 let currentWishIndex = 0;
+
+// ===== NEXT WISH =====
 
 function nextWish(){
 
@@ -411,18 +387,37 @@ function nextWish(){
 
   const wish = birthdayWishes[currentWishIndex];
 
-  document.getElementById('wish-counter').textContent =
-    String(currentWishIndex + 1).padStart(2,'0') + ' / 25';
+  const img = document.getElementById("wish-image");
+  const title = document.getElementById("wish-title");
+  const text = document.getElementById("wish-text");
 
-  document.getElementById('wish-emoji').textContent =
-    wish.emoji;
+  // fade out
+  title.classList.add("fade");
+  text.classList.add("fade");
 
-  document.getElementById('wish-title').textContent =
-    wish.title;
+  img.classList.remove("animate");
 
-  document.getElementById('wish-text').textContent =
-    wish.text;
+  setTimeout(() => {
 
+    document.getElementById("wish-counter").textContent =
+      String(currentWishIndex + 1).padStart(2,"0") + " / 25";
+
+    img.src = wish.image;
+    title.textContent = wish.title;
+    text.textContent = wish.text;
+
+    title.classList.remove("fade");
+    text.classList.remove("fade");
+
+    void img.offsetWidth;
+    img.classList.add("animate");
+
+    // optional: trigger your confetti
+    if (typeof launchConfetti === "function") {
+      launchConfetti();
+    }
+
+  }, 250);
 }
 
   document.getElementById('celebrate-btn').addEventListener('click', launchConfetti);
