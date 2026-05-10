@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 25th Birthday 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+<canvas id="confetti-canvas"></canvas>
+<div id="particles"></div>
+<div class="magic-layer" id="magic-layer"></div>
+ 
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="petal-ring"></div>
+  <p class="hero-label">A very special day &bull; May 23rd</p>
+  <h1 class="hero-name">Happy 25th<br>Birthday</h1>
+  <p class="hero-sub">To the most beautiful soul I know &mdash; this day is all yours</p>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+ 
+<!-- ====== COUNTER ====== -->
+<section class="counter-section">
+  <p class="section-label" id="section-label">Counting down to the big day</p>
+  <h2 class="counter-heading" id="counter-heading">May 23rd is <em>almost here</em></h2>
+ 
+  <div class="counter-grid">
+    <div class="counter-card">
+      <span class="counter-value" id="c-years">25</span>
+      <span class="counter-label">Turning</span>
+    </div>
+    <div class="counter-card">
+      <span class="counter-value" id="c-months" style="font-size:clamp(1.4rem,4vw,2rem)">00d</span>
+      <span class="counter-label">Days</span>
+    </div>
+    <div class="counter-card">
+      <span class="counter-value" id="c-days" style="font-size:clamp(1.4rem,4vw,2rem)">00h</span>
+      <span class="counter-label">Hours</span>
+    </div>
+    <div class="counter-card">
+      <span class="counter-value" id="c-hours" style="font-size:clamp(0.9rem,2.5vw,1.3rem)">00m 00s</span>
+      <span class="counter-label">Min &middot; Sec</span>
+    </div>
+  </div>
+ 
+  <div class="totals-row">
+    <div class="total-item">
+      <span class="total-number" id="t-heartbeats">—</span>
+      <span class="total-desc">Heartbeats</span>
+    </div>
+    <div class="total-item">
+      <span class="total-number" id="t-sleeps">—</span>
+      <span class="total-desc">Nights of sleep</span>
+    </div>
+    <div class="total-item">
+      <span class="total-number" id="t-breaths">—</span>
+      <span class="total-desc">Breaths taken</span>
+    </div>
+  </div>
+</section>
+ 
+<!-- ====== MESSAGE ====== -->
+<section class="message-section">
+  <p class="section-label">A message for you</p>
+  <p class="message-quote">
+    Twenty-five years of your laughter, your light, and your love&nbsp;&mdash; 
+    and every single one of those years has made this world infinitely better. 
+    Here's to you, to this chapter, and to every beautiful thing still ahead.
+  </p>
+  <p class="message-from">With all my love &hearts;</p>
+  <button class="birthday-btn" id="celebrate-btn">🎉 Celebrate!</button>
+</section>
+ 
+<!-- ====== WISHES ====== -->
+<section class="wishes-section">
+  <p class="section-label">Birthday wishes</p>
+  <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.5rem,4vw,2.2rem); font-weight:400; color:var(--cream);">
+    25 reasons to shine
+  </h2>
+ 
+  <div class="wishes-grid">
+    <div class="wish-card">
+      <span class="wish-icon">✨</span>
+      <h3 class="wish-title">Adventure</h3>
+      <p class="wish-text">May your 25th year be full of places and moments that take your breath away.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🌸</span>
+      <h3 class="wish-title">Joy</h3>
+      <p class="wish-text">The kind of deep, quiet happiness that settles into your bones and stays.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">💫</span>
+      <h3 class="wish-title">Growth</h3>
+      <p class="wish-text">Every dream you're brave enough to chase &mdash; may it find you.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🍰</span>
+      <h3 class="wish-title">Sweetness</h3>
+      <p class="wish-text">More cake, more laughter, more of all the things that make you smile.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🌙</span>
+      <h3 class="wish-title">Rest</h3>
+      <p class="wish-text">Permission to slow down, breathe, and simply be.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">💖</span>
+      <h3 class="wish-title">Love</h3>
+      <p class="wish-text">All the love you give so freely &mdash; reflected back to you ten times over.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🌟</span>
+      <h3 class="wish-title">Courage</h3>
+      <p class="wish-text">The boldness to say yes to the things that scare you a little — those are the ones worth doing.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🎶</span>
+      <h3 class="wish-title">Music</h3>
+      <p class="wish-text">May every song that finds you this year feel like it was written just for your soul.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🌺</span>
+      <h3 class="wish-title">Beauty</h3>
+      <p class="wish-text">Not just the kind the world sees — but the rare, radiant kind that lives inside you.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🤝</span>
+      <h3 class="wish-title">Connection</h3>
+      <p class="wish-text">Deeper conversations, truer friendships, and bonds that feel like home.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🌊</span>
+      <h3 class="wish-title">Peace</h3>
+      <p class="wish-text">A stillness in your heart that no chaos can touch. You deserve that kind of calm.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">💡</span>
+      <h3 class="wish-title">Clarity</h3>
+      <p class="wish-text">May 25 bring you answers to questions you've been carrying quietly for far too long.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🎨</span>
+      <h3 class="wish-title">Creativity</h3>
+      <p class="wish-text">Space to create, to colour outside the lines, and to express everything you feel inside.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🌍</span>
+      <h3 class="wish-title">Horizons</h3>
+      <p class="wish-text">New places, new perspectives, new versions of yourself waiting just around the corner.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🦋</span>
+      <h3 class="wish-title">Transformation</h3>
+      <p class="wish-text">Twenty-five is not an ending — it is the most beautiful kind of beginning.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">☕</span>
+      <h3 class="wish-title">Comfort</h3>
+      <p class="wish-text">Warm mornings, soft moments, and all the little things that make life feel like a hug.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🏆</span>
+      <h3 class="wish-title">Success</h3>
+      <p class="wish-text">On your own terms, in your own time — the kind that truly satisfies.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🌈</span>
+      <h3 class="wish-title">Hope</h3>
+      <p class="wish-text">That no matter what comes, you always find the light waiting on the other side.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🫶</span>
+      <h3 class="wish-title">Belonging</h3>
+      <p class="wish-text">May you always know, without a single doubt, that you are deeply wanted and needed here.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">💪</span>
+      <h3 class="wish-title">Strength</h3>
+      <p class="wish-text">You are so much stronger than you know. May this year remind you of that every single day.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🎁</span>
+      <h3 class="wish-title">Surprise</h3>
+      <p class="wish-text">The kind of unexpected moments that make your heart leap — the best stories always start that way.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🌻</span>
+      <h3 class="wish-title">Warmth</h3>
+      <p class="wish-text">People who pour into you as much as you pour into them. You deserve that overflow.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🥂</span>
+      <h3 class="wish-title">Celebration</h3>
+      <p class="wish-text">More reasons to raise a glass, dance a little, and remember how good it is to be alive.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">🔮</span>
+      <h3 class="wish-title">Magic</h3>
+      <p class="wish-text">The kind that doesn't need explanation — the feeling that something wonderful is always on its way.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-icon">❤️</span>
+      <h3 class="wish-title">You</h3>
+      <p class="wish-text">Above all else — more of you. More of your light, your laugh, your love. The world needs every bit of it.</p>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ====== ENVELOPE LETTER ====== -->
+<section class="envelope-section">
+  <p class="section-label">A letter from the heart</p>
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:400;color:var(--cream);">
+    Something <em style="color:var(--rose)">I wrote just for you</em>
+  </h2>
+ 
+  <div class="envelope-wrap" id="env-wrap" onclick="openEnvelope()">
+    <div class="envelope" id="envelope">
+      <div class="env-body"></div>
+      <div class="env-left"></div>
+      <div class="env-right"></div>
+      <div class="env-bottom"></div>
+      <div class="env-flap"></div>
+      <div class="env-seal">💌</div>
+    </div>
+    <p class="env-hint" id="env-hint">tap to open</p>
+  </div>
+ 
+  <div class="letter" id="letter" style="position:relative;margin-top:2.5rem;">
+    <div class="letter-lines"></div>
+    <p>My darling,</p>
+    <p>Twenty-five years ago, the world quietly became a better place — and it's been getting better every single day since, because you're in it.</p>
+    <p>I think about the way you laugh when something genuinely surprises you, the way you care so deeply about the people you love, the way you make ordinary moments feel like they matter. They do matter. You matter — more than I could ever put into words.</p>
+    <p>Twenty-five is not just a number. It's proof of every storm you've weathered, every dream you've kept alive, every beautiful thing you've quietly become without even realising it.</p>
+    <p>On this day, I want you to know: I am so proud of you. I am so in love with you. And I cannot wait to see what the next chapter holds — as long as I'm holding your hand through it.</p>
+    <p>Happy 25th birthday, my love. The world is lucky to have you. And I am the luckiest of all. 🌹</p>
+    <span class="letter-sign">Forever yours ❤️</span>
+  </div>
+</section>
+ 
+<!-- ====== VOICE NOTE ====== -->
+<section class="voice-section">
+  <p class="section-label">One more thing</p>
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:400;color:var(--cream);margin-bottom:2rem;">
+    Click to hear something <em style="color:var(--rose)">from me 🎧</em>
+  </h2>
+ 
+  <button class="voice-btn" onclick="toggleVoice()" id="voice-btn">
+    <div class="voice-icon">🎙</div>
+    <span>Play my voice note</span>
+    <div class="voice-wave">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </button>
+ 
+  <div class="voice-note" id="voice-note">
+    <audio controls id="voice-audio">
+      <!-- Replace the src below with your actual voice recording URL -->
+      <source src="YOUR_VOICE_NOTE_URL_HERE.mp3" type="audio/mpeg">
+    </audio>
+    <p class="voice-upload-hint">🎙 Replace the audio src in the HTML with your recorded voice note</p>
+  </div>
+</section>
+ 
+<!-- ====== SECRET SURPRISE ====== -->
+<section class="secret-section">
+  <p class="secret-teaser">One more thing...</p>
+  <div class="secret-dots"><span></span><span></span><span></span></div>
+  <button class="secret-btn" id="secret-btn" onclick="revealSecret()">Click me 🎁</button>
+ 
+  <div class="secret-reveal" id="secret-reveal">
+    <h2 class="secret-title">Happy 25th Birthday<br>My Love ❤️</h2>
+    <p style="color:rgba(253,246,238,0.45);font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:2.5rem;">5 gifts · 5 senses · all for you</p>
+ 
+    <div class="senses-track" id="senses-track">
+ 
+      <!-- Sense 1: Sound -->
+      <div class="sense-card active" id="sense-1">
+        <div class="sense-number">01 / 05</div>
+        <div class="sense-icon">👂</div>
+        <div class="sense-label">The Sense of Sound</div>
+        <div class="sense-clue">
+          Close your eyes for a moment...<br><br>
+          There is something waiting for you that speaks without words —
+          a melody that knows your name,
+          a sound that wraps around you like a warm embrace.<br><br>
+          <em>Listen closely, my love. Your ears will lead you there. 🎵</em>
+        </div>
+        <button class="sense-next-btn" onclick="nextSense(2)">Next gift &rarr;</button>
+      </div>
+ 
+      <!-- Sense 2: Sight -->
+      <div class="sense-card" id="sense-2">
+        <div class="sense-number">02 / 05</div>
+        <div class="sense-icon">👁️</div>
+        <div class="sense-label">The Sense of Sight</div>
+        <div class="sense-clue">
+          Some things are meant to be seen and savoured slowly —<br><br>
+          a story told in pages, a shimmer worn close to the heart,
+          colours waiting patiently for your hands to bring them to life.<br><br>
+          <em>Open your eyes wide, my love. Beauty has been wrapped up just for you. ✨</em>
+        </div>
+        <button class="sense-next-btn" onclick="nextSense(3)">Next gift &rarr;</button>
+      </div>
+ 
+      <!-- Sense 3: Smell -->
+      <div class="sense-card" id="sense-3">
+        <div class="sense-number">03 / 05</div>
+        <div class="sense-icon">🌸</div>
+        <div class="sense-label">The Sense of Smell</div>
+        <div class="sense-clue">
+          Memory lives in scent more than anywhere else —<br><br>
+          a flame that fills the room with warmth and wonder,
+          a fragrance that lingers on your skin like a secret,
+          a whisper that says: <em>you are cherished.</em><br><br>
+          <em>Breathe it in, my love. This one was made for you. 🕯️</em>
+        </div>
+        <button class="sense-next-btn" onclick="nextSense(4)">Next gift &rarr;</button>
+      </div>
+ 
+      <!-- Sense 4: Taste -->
+      <div class="sense-card" id="sense-4">
+        <div class="sense-number">04 / 05</div>
+        <div class="sense-icon">🍫</div>
+        <div class="sense-label">The Sense of Taste</div>
+        <div class="sense-clue">
+          Because you deserve every sweet thing life has to offer —<br><br>
+          something rich, something indulgent,
+          the kind of treat that makes you close your eyes
+          and just… smile.<br><br>
+          <em>Go on, take a bite. You've earned every single piece. 🎂</em>
+        </div>
+        <button class="sense-next-btn" onclick="nextSense(5)">Next gift &rarr;</button>
+      </div>
+ 
+      <!-- Sense 5: Touch -->
+      <div class="sense-card" id="sense-5">
+        <div class="sense-number">05 / 05</div>
+        <div class="sense-icon">🤲</div>
+        <div class="sense-label">The Sense of Touch</div>
+        <div class="sense-clue">
+          The last gift is for your hands —<br><br>
+          a box that keeps precious things safe,
+          something to hold your warmth on the coldest mornings,
+          a little treasure chest for a girl who is, herself, a treasure.<br><br>
+          <em>Feel it, keep it, hold it close — just like I hold you. 💍</em>
+        </div>
+        <button class="sense-next-btn" onclick="showFinalMessage()" style="background:linear-gradient(135deg,#e8607a,#c94060);border:none;color:#fff;box-shadow:0 8px 30px rgba(232,96,122,0.4);">
+          Finish 🎉
+        </button>
+      </div>
+ 
+      <!-- Final message -->
+      <div class="sense-card" id="sense-final">
+        <div class="sense-icon" style="font-size:3rem;">❤️</div>
+        <div class="sense-label" style="font-size:1.3rem;margin:1rem 0;">I love you</div>
+        <div class="sense-clue" style="font-size:1.1rem;line-height:1.9;">
+          Five senses. Five gifts. One reason.<br><br>
+          Because you deserve to be celebrated
+          in every way imaginable —
+          and even that is not enough.<br><br>
+          <em>Happy 25th birthday, my love.<br>Here's to forever with you. 🥂</em>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <!-- Progress dots -->
+    <div class="sense-dots" id="sense-dots">
+      <span class="sdot active" id="dot-1"></span>
+      <span class="sdot" id="dot-2"></span>
+      <span class="sdot" id="dot-3"></span>
+      <span class="sdot" id="dot-4"></span>
+      <span class="sdot" id="dot-5"></span>
+    </div>
+ 
+  </div>
+</section>
+ 
+<footer class="footer">
+  Made with love &hearts; &bull; Happy 25th Birthday &bull; May 23
+</footer>
+</body>
+</html>
