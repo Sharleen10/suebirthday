@@ -70,7 +70,7 @@
  
   // === FLOATING HEARTS & STARS ===
   const magicLayer = document.getElementById('magic-layer');
-  const heartSymbols = ['❤️','💕','🩷','💗','💖','💓'];
+  const heartSymbols = ['❤️','💕','💗','💖','💓'];
  
   function spawnHeart() {
     const el = document.createElement('div');
@@ -243,6 +243,188 @@
     }
   }
  
+  // ===== INTERACTIVE WISHES =====
+
+const birthdayWishes = [
+
+  {
+    emoji:"✨",
+    title:"Adventure",
+    text:"May your 25th year be full of places and moments that take your breath away."
+  },
+
+  {
+    emoji:"🌸",
+    title:"Joy",
+    text:"The kind of deep, quiet happiness that settles into your bones and stays."
+  },
+
+  {
+    emoji:"💫",
+    title:"Growth",
+    text:"Every dream you're brave enough to chase — may it find you."
+  },
+
+  {
+    emoji:"🍰",
+    title:"Sweetness",
+    text:"More cake, more laughter, more of all the things that make you smile."
+  },
+
+  {
+    emoji:"🌙",
+    title:"Rest",
+    text:"Permission to slow down, breathe, and simply be."
+  },
+
+  {
+    emoji:"💖",
+    title:"Love",
+    text:"All the love you give so freely — reflected back to you ten times over."
+  },
+
+  {
+    emoji:"🌟",
+    title:"Courage",
+    text:"The boldness to say yes to the things that scare you a little — those are the ones worth doing."
+  },
+
+  {
+    emoji:"🎶",
+    title:"Music",
+    text:"May every song that finds you this year feel like it was written just for your soul."
+  },
+
+  {
+    emoji:"🌺",
+    title:"Beauty",
+    text:"Not just the kind the world sees — but the rare, radiant kind that lives inside you."
+  },
+
+  {
+    emoji:"🤝",
+    title:"Connection",
+    text:"Deeper conversations, truer friendships, and bonds that feel like home."
+  },
+
+  {
+    emoji:"🌊",
+    title:"Peace",
+    text:"A stillness in your heart that no chaos can touch. You deserve that kind of calm."
+  },
+
+  {
+    emoji:"💡",
+    title:"Clarity",
+    text:"May 25 bring you answers to questions you've been carrying quietly for far too long."
+  },
+
+  {
+    emoji:"🎨",
+    title:"Creativity",
+    text:"Space to create, to colour outside the lines, and to express everything you feel inside."
+  },
+
+  {
+    emoji:"🌍",
+    title:"Horizons",
+    text:"New places, new perspectives, new versions of yourself waiting just around the corner."
+  },
+
+  {
+    emoji:"🦋",
+    title:"Transformation",
+    text:"Twenty-five is not an ending — it is the most beautiful kind of beginning."
+  },
+
+  {
+    emoji:"☕",
+    title:"Comfort",
+    text:"Warm mornings, soft moments, and all the little things that make life feel like a hug."
+  },
+
+  {
+    emoji:"🏆",
+    title:"Success",
+    text:"On your own terms, in your own time — the kind that truly satisfies."
+  },
+
+  {
+    emoji:"🌈",
+    title:"Hope",
+    text:"That no matter what comes, you always find the light waiting on the other side."
+  },
+
+  {
+    emoji:"🫶",
+    title:"Belonging",
+    text:"May you always know, without a single doubt, that you are deeply wanted and needed here."
+  },
+
+  {
+    emoji:"💪",
+    title:"Strength",
+    text:"You are so much stronger than you know. May this year remind you of that every single day."
+  },
+
+  {
+    emoji:"🎁",
+    title:"Surprise",
+    text:"The kind of unexpected moments that make your heart leap — the best stories always start that way."
+  },
+
+  {
+    emoji:"🌻",
+    title:"Warmth",
+    text:"People who pour into you as much as you pour into them. You deserve that overflow."
+  },
+
+  {
+    emoji:"🥂",
+    title:"Celebration",
+    text:"More reasons to raise a glass, dance a little, and remember how good it is to be alive."
+  },
+
+  {
+    emoji:"🔮",
+    title:"Magic",
+    text:"The kind that doesn't need explanation — the feeling that something wonderful is always on its way."
+  },
+
+  {
+    emoji:"❤️",
+    title:"You",
+    text:"Above all else — more of your light, your laugh, your love. The world needs every bit of it."
+  }
+
+];
+
+let currentWishIndex = 0;
+
+function nextWish(){
+
+  currentWishIndex++;
+
+  if(currentWishIndex >= birthdayWishes.length){
+    currentWishIndex = 0;
+  }
+
+  const wish = birthdayWishes[currentWishIndex];
+
+  document.getElementById('wish-counter').textContent =
+    String(currentWishIndex + 1).padStart(2,'0') + ' / 25';
+
+  document.getElementById('wish-emoji').textContent =
+    wish.emoji;
+
+  document.getElementById('wish-title').textContent =
+    wish.title;
+
+  document.getElementById('wish-text').textContent =
+    wish.text;
+
+}
+
   document.getElementById('celebrate-btn').addEventListener('click', launchConfetti);
  
   // Auto confetti on load after delay
