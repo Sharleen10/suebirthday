@@ -161,7 +161,7 @@
  
  
  
-  // === ENVELOPE ===
+   // === ENVELOPE ===
   let envelopeOpened = false;
   function openEnvelope() {
     if (envelopeOpened) return;
@@ -182,6 +182,24 @@
       });
     }, 700);
   }
+ 
+  function closeEnvelope() {
+    const env     = document.getElementById('envelope');
+    const letter  = document.getElementById('letter');
+    const envHint = document.getElementById('env-hint');
+ 
+    // hide letter first
+    letter.classList.remove('visible');
+    setTimeout(() => {
+      letter.style.display = 'none';
+      // close flap
+      env.classList.remove('opened');
+      // restore hint and allow re-opening
+      if (envHint) { envHint.style.opacity = '1'; envHint.textContent = 'tap to open again'; }
+      envelopeOpened = false;
+    }, 500);
+  }
+ 
  
   // === VOICE NOTE ===
   let voiceVisible = false;
@@ -399,3 +417,13 @@
       if (typeof launchConfetti === 'function') launchConfetti();
     }, 260);
   }
+
+   // === SCROLL TO TOP VISIBILITY ===
+  const scrollTopBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  }, { passive: true });
