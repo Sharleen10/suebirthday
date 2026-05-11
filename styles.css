@@ -865,3 +865,120 @@
   .sdot.done {
     background:rgba(201,168,76,0.5);
   }
+/* === MYSTERY COUNTDOWN OVERLAY === */
+  #countdown-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #0a0608;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+  }
+  #countdown-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+ 
+  /* stop main page from scrolling during countdown */
+  body.locked { overflow: hidden; }
+ 
+  .cd-ring {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin-bottom: 2.5rem;
+  }
+  .cd-ring svg {
+    position: absolute;
+    inset: 0;
+    transform: rotate(-90deg);
+  }
+  .cd-ring-track {
+    fill: none;
+    stroke: rgba(255,255,255,0.05);
+    stroke-width: 3;
+  }
+  .cd-ring-progress {
+    fill: none;
+    stroke: url(#cdGradient);
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
+  }
+  .cd-number {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f9e4b7, #e8607a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: cd-pulse 1s ease-in-out infinite;
+  }
+  @keyframes cd-pulse {
+    0%, 100% { transform: scale(1);   opacity: 1; }
+    50%       { transform: scale(1.08); opacity: 0.85; }
+  }
+ 
+  .cd-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: rgba(253,246,238,0.35);
+    margin-bottom: 1.2rem;
+    animation: cd-fade-blink 2s ease-in-out infinite;
+  }
+  @keyframes cd-fade-blink {
+    0%, 100% { opacity: 0.35; } 50% { opacity: 0.7; }
+  }
+ 
+  .cd-message {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: rgba(253,246,238,0.55);
+    max-width: 340px;
+    line-height: 1.7;
+    min-height: 3.5rem;
+    transition: opacity 0.5s ease;
+  }
+ 
+  /* floating hearts behind countdown */
+  .cd-heart {
+    position: absolute;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: cd-heart-rise linear infinite;
+    pointer-events: none;
+  }
+  @keyframes cd-heart-rise {
+    0%   { transform: translateY(0) scale(0.5); opacity: 0; }
+    10%  { opacity: 0.5; }
+    90%  { opacity: 0.2; }
+    100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+  }
+ 
+  /* big reveal flash */
+  #reveal-flash {
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+  #reveal-flash.flash {
+    opacity: 0.9;
+  }
