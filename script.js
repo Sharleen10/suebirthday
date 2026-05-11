@@ -247,12 +247,12 @@
 
 const birthdayWishes = [
   {
-    image:"photos/photo1.jpg",
+    image:"pics/adventure.jpg",
     title:"Adventure",
     text:"May your 25th year be full of places and moments that take your breath away."
   },
   {
-    image:"photos/photo2.jpg",
+    image:"pics/joy.jpeg",
     title:"Joy",
     text:"The kind of deep, quiet happiness that settles into your bones and stays."
   },
@@ -272,7 +272,7 @@ const birthdayWishes = [
     text:"Permission to slow down, breathe, and simply be."
   },
   {
-    image:"photos/photo6.jpg",
+    image:"pics/love.jpg",
     title:"Love",
     text:"All the love you give so freely — reflected back to you ten times over."
   },
@@ -287,12 +287,12 @@ const birthdayWishes = [
     text:"May every song feel like it was written just for your soul."
   },
   {
-    image:"photos/photo9.jpg",
+    image:"pics/Beauty.jpeg",
     title:"Beauty",
     text:"The rare kind that lives inside you and shines through everything."
   },
   {
-    image:"pics/touch1.jpg",
+    image:"pics/connection.jpg",
     title:"Connection",
     text:"Deeper conversations, truer friendships, and bonds that feel like home."
   },
@@ -307,7 +307,7 @@ const birthdayWishes = [
     text:"May everything you’ve been wondering finally make sense."
   },
   {
-    image:"photos/photo13.jpg",
+    image:"pics/creativity.jpeg",
     title:"Creativity",
     text:"Space to create, to colour outside the lines, and to express everything you feel inside."
   },
@@ -367,7 +367,7 @@ const birthdayWishes = [
     text:"The kind that doesn't need explanation — the feeling that something wonderful is always on its way."
   },
   {
-    image:"photos/photo25.jpg",
+    image:"pics/You.jpeg",
     title:"You",
     text:"Above all else — more of you. More of your light, your laugh, your love. The world needs every bit of it."
   }
