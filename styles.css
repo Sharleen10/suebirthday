@@ -10,15 +10,106 @@
     --soft: #f3e8d8;
   }
  
-  html { scroll-behavior: smooth; }
- 
-  body {
-    background: var(--dark);
-    color: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
-    min-height: 100vh;
+  /* ===== PERFORMANCE FIXES ===== */
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* smoother rendering */
+.particle,
+.heart-float,
+.cd-heart,
+.wish-reveal-card,
+.sense-card,
+#confetti-canvas {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* prevent repaint lag */
+.magic-layer,
+#particles,
+#confetti-canvas {
+  contain: layout style paint;
+}
+
+/* FIX floating layer jitter */
+.magic-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* smoother hearts */
+.heart-float {
+  position: absolute;
+  bottom: -40px;
+
+  animation-name: smoothHeartRise;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
+  opacity: 0;
+}
+
+@keyframes smoothHeartRise {
+
+  0% {
+    transform:
+      translate3d(0,0,0)
+      scale(0.7)
+      rotate(0deg);
+
+    opacity: 0;
   }
+
+  10% {
+    opacity: 0.85;
+  }
+
+  100% {
+    transform:
+      translate3d(
+        calc((random() - 0.5) * 60px),
+        -120vh,
+        0
+      )
+      scale(1.1)
+      rotate(15deg);
+
+    opacity: 0;
+  }
+}
+
+/* reduce blur lag */
+.wish-reveal-card,
+.counter-card,
+.letter {
+  backdrop-filter: blur(10px);
+}
+
+/* smoother animations */
+.sense-card,
+.wish-image,
+.wish-title,
+.wish-text {
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* prevent fixed-layer scroll issues */
+body.locked {
+  overflow: hidden;
+  touch-action: none;
+}
+  
  
   /* === PARTICLES === */
   #particles {
@@ -982,3 +1073,5 @@
   #reveal-flash.flash {
     opacity: 0.9;
   }
+
+  
