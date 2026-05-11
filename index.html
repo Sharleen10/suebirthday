@@ -8,10 +8,43 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    
+ 
+<div id="countdown-overlay">
+ 
+  <!-- floating hearts in bg -->
+  <div id="cd-hearts"></div>
+ 
+  <p class="cd-label">something special awaits you</p>
+ 
+  <div class="cd-ring">
+    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="cdGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#f9e4b7"/>
+          <stop offset="100%" stop-color="#e8607a"/>
+        </linearGradient>
+      </defs>
+      <circle class="cd-ring-track"    cx="110" cy="110" r="100"/>
+      <circle class="cd-ring-progress" cx="110" cy="110" r="100"
+              id="cd-progress"
+              stroke-dasharray="628"
+              stroke-dashoffset="0"/>
+    </svg>
+    <div class="cd-number" id="cd-number">5</div>
+  </div>
+ 
+  <p class="cd-message" id="cd-message">Close your eyes…</p>
+ 
+</div>
+ 
+<div id="reveal-flash"></div>
  
 <canvas id="confetti-canvas"></canvas>
 <div id="particles"></div>
 <div class="magic-layer" id="magic-layer"></div>
+ 
  
 <!-- ====== HERO ====== -->
 <section class="hero">
