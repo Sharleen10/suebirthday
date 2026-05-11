@@ -1,4 +1,3 @@
- 
   // === FLOATING PARTICLES ===
   const pContainer = document.getElementById('particles');
   const colors = ['#e8607a','#c9a84c','#f7d6df','#f3e8d8','#fff'];
@@ -243,184 +242,87 @@
     }
   }
  
- // ===== WISH DATA =====
-
-const birthdayWishes = [
-  {
-    image:"pics/adventure.jpg",
-    title:"Adventure",
-    text:"May your 25th year be full of places and moments that take your breath away."
-  },
-  {
-    image:"pics/joy.jpeg",
-    title:"Joy",
-    text:"The kind of deep, quiet happiness that settles into your bones and stays."
-  },
-  {
-    image:"pics/growth.jpg",
-    title:"Growth",
-    text:"Every dream you're brave enough to chase — may it find you."
-  },
-  {
-    image:"pics/sweet.jpg",
-    title:"Sweetness",
-    text:"More cake, more laughter, more of all the things that make you smile."
-  },
-  {
-    image:"pics/rest.jpg",
-    title:"Rest",
-    text:"Permission to slow down, breathe, and simply be."
-  },
-  {
-    image:"pics/love.jpg",
-    title:"Love",
-    text:"All the love you give so freely — reflected back to you ten times over."
-  },
-  {
-    image:"pics/courage.jpg",
-    title:"Courage",
-    text:"The boldness to say yes to the things that scare you a little, those are the ones worth doing."
-  },
-  {
-    image:"pics/music.jpg",
-    title:"Music",
-    text:"May every song feel like it was written just for your soul."
-  },
-  {
-    image:"pics/Beauty.jpeg",
-    title:"Beauty",
-    text:"The rare kind that lives inside you and shines through everything."
-  },
-  {
-    image:"pics/connection.jpg",
-    title:"Connection",
-    text:"Deeper conversations, truer friendships, and bonds that feel like home."
-  },
-  {
-    image:"pics/peace.jpg",
-    title:"Peace",
-    text:"A calm no chaos can touch. A quiet you can always return to, no matter what’s happening around you."
-  },
-  {
-    image:"pics/clarity.jpg",
-    title:"Clarity",
-    text:"May everything you’ve been wondering finally make sense."
-  },
-  {
-    image:"pics/creativity.jpeg",
-    title:"Creativity",
-    text:"Space to create, to colour outside the lines, and to express everything you feel inside."
-  },
-  {
-    image:"pics/horizons.jpg",
-    title:"Horizons",
-    text:"New places and new versions of you waiting ahead."
-  },
-  {
-    image:"pics/transformation.jpg",
-    title:"Transformation",
-    text:"This is not an ending — it’s your beginning."
-  },
-  {
-    image:"pics/comfort.jpg",
-    title:"Comfort",
-    text:"Soft mornings and warm moments that feel like home."
-  },
-  {
-    image:"pics/success.jpg",
-    title:"Success",
-    text:"On your terms, in your time, in your way."
-  },
-  {
-    image:"pics/hope.jpg",
-    title:"Hope",
-    text:"Light always finds you, even in quiet moments."
-  },
-  {
-    image:"pics/belonging.jpg",
-    title:"Belonging",
-    text:"May you always know, without a single doubt, that you are deeply wanted and needed here."
-  },
-  {
-    image:"pics/strength.jpg",
-    title:"Strength",
-    text:"You are so much stronger than you know. May this year remind you of that every single day."
-  },
-  {
-    image:"pics/surprise.jpg",
-    title:"Surprise",
-    text:"The kind of unexpected moments that make your heart leap — the best stories always start that way."
-  },
-  {
-    image:"pics/warmth.jpg",
-    title:"Warmth",
-    text:"People who pour into you the way you pour into others. You deserve that overflow."
-  },
-  {
-    image:"pics/celebration.jpg",
-    title:"Celebration",
-    text:"More reasons to raise a glass, dance a little, and remember how good it is to be alive."
-  },
-  {
-    image:"pics/magic.jpg",
-    title:"Magic",
-    text:"The kind that doesn't need explanation — the feeling that something wonderful is always on its way."
-  },
-  {
-    image:"pics/You.jpeg",
-    title:"You",
-    text:"Above all else — more of you. More of your light, your laugh, your love. The world needs every bit of it."
-  }
-];
-
-let currentWishIndex = 0;
-
-// ===== NEXT WISH =====
-
-function nextWish(){
-
-  currentWishIndex++;
-
-  if(currentWishIndex >= birthdayWishes.length){
-    currentWishIndex = 0;
-  }
-
-  const wish = birthdayWishes[currentWishIndex];
-
-  const img = document.getElementById("wish-image");
-  const title = document.getElementById("wish-title");
-  const text = document.getElementById("wish-text");
-
-  // fade out
-  title.classList.add("fade");
-  text.classList.add("fade");
-
-  img.classList.remove("animate");
-
-  setTimeout(() => {
-
-    document.getElementById("wish-counter").textContent =
-      String(currentWishIndex + 1).padStart(2,"0") + " / 25";
-
-    img.src = wish.image;
-    title.textContent = wish.title;
-    text.textContent = wish.text;
-
-    title.classList.remove("fade");
-    text.classList.remove("fade");
-
-    void img.offsetWidth;
-    img.classList.add("animate");
-
-    // optional: trigger your confetti
-    if (typeof launchConfetti === "function") {
-      launchConfetti();
-    }
-
-  }, 250);
-}
-
   document.getElementById('celebrate-btn').addEventListener('click', launchConfetti);
  
   // Auto confetti on load after delay
   setTimeout(launchConfetti, 2000);
+ 
+  // ===== WISH DATA =====
+  const birthdayWishes = [
+    { image:"pics/adventure.jpg",      title:"Adventure",      text:"May your 25th year be full of places and moments that take your breath away." },
+    { image:"pics/joy.jpeg",           title:"Joy",            text:"The kind of deep, quiet happiness that settles into your bones and stays." },
+    { image:"pics/growth.jpg",         title:"Growth",         text:"Every dream you're brave enough to chase — may it find you." },
+    { image:"pics/sweet.jpg",          title:"Sweetness",      text:"More cake, more laughter, more of all the things that make you smile." },
+    { image:"pics/rest.jpg",           title:"Rest",           text:"Permission to slow down, breathe, and simply be." },
+    { image:"pics/love.jpg",           title:"Love",           text:"All the love you give so freely — reflected back to you ten times over." },
+    { image:"pics/courage.jpg",        title:"Courage",        text:"The boldness to say yes to the things that scare you a little, those are the ones worth doing." },
+    { image:"pics/music.jpg",          title:"Music",          text:"May every song feel like it was written just for your soul." },
+    { image:"pics/Beauty.jpeg",        title:"Beauty",         text:"The rare kind that lives inside you and shines through everything." },
+    { image:"pics/connection.jpg",     title:"Connection",     text:"Deeper conversations, truer friendships, and bonds that feel like home." },
+    { image:"pics/peace.jpg",          title:"Peace",          text:"A calm no chaos can touch. A quiet you can always return to." },
+    { image:"pics/clarity.jpg",        title:"Clarity",        text:"May everything you've been wondering finally make sense." },
+    { image:"pics/creativity.jpeg",    title:"Creativity",     text:"Space to create, to colour outside the lines, and to express everything you feel inside." },
+    { image:"pics/horizons.jpg",       title:"Horizons",       text:"New places and new versions of you waiting ahead." },
+    { image:"pics/transformation.jpg", title:"Transformation", text:"This is not an ending — it's your beginning." },
+    { image:"pics/comfort.jpg",        title:"Comfort",        text:"Soft mornings and warm moments that feel like home." },
+    { image:"pics/success.jpg",        title:"Success",        text:"On your terms, in your time, in your way." },
+    { image:"pics/hope.jpg",           title:"Hope",           text:"Light always finds you, even in quiet moments." },
+    { image:"pics/belonging.jpg",      title:"Belonging",      text:"May you always know, without a single doubt, that you are deeply wanted and needed here." },
+    { image:"pics/strength.jpg",       title:"Strength",       text:"You are so much stronger than you know. May this year remind you of that every single day." },
+    { image:"pics/surprise.jpg",       title:"Surprise",       text:"The kind of unexpected moments that make your heart leap — the best stories always start that way." },
+    { image:"pics/warmth.jpg",         title:"Warmth",         text:"People who pour into you the way you pour into others. You deserve that overflow." },
+    { image:"pics/celebration.jpg",    title:"Celebration",    text:"More reasons to raise a glass, dance a little, and remember how good it is to be alive." },
+    { image:"pics/magic.jpg",          title:"Magic",          text:"The kind that doesn't need explanation — the feeling that something wonderful is always on its way." },
+    { image:"pics/You.jpeg",           title:"You",            text:"Above all else — more of you. More of your light, your laugh, your love. The world needs every bit of it." }
+  ];
+ 
+  let currentWishIndex = 0;
+ 
+  // ===== NEXT WISH (PAGE-FLIP FEEL) =====
+  function nextWish() {
+    currentWishIndex++;
+    if (currentWishIndex >= birthdayWishes.length) currentWishIndex = 0;
+ 
+    const wish  = birthdayWishes[currentWishIndex];
+    const img   = document.getElementById('wish-image');
+    const title = document.getElementById('wish-title');
+    const text  = document.getElementById('wish-text');
+    const card  = document.querySelector('.wish-reveal-card');
+ 
+    // Page-flip: tilt card away
+    card.style.transition = 'transform 0.25s ease, opacity 0.25s ease';
+    card.style.transform  = 'rotateY(90deg) scale(0.95)';
+    card.style.opacity    = '0.3';
+ 
+    title.classList.add('fade');
+    text.classList.add('fade');
+    img.classList.remove('animate');
+ 
+    setTimeout(() => {
+      // Swap content
+      document.getElementById('wish-counter').textContent =
+        String(currentWishIndex + 1).padStart(2,'0') + ' / 25';
+ 
+      img.src        = wish.image;
+      title.textContent = wish.title;
+      text.textContent  = wish.text;
+ 
+      title.classList.remove('fade');
+      text.classList.remove('fade');
+ 
+      // Flip card back in
+      card.style.transform = 'rotateY(-90deg) scale(0.95)';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          card.style.transition = 'transform 0.35s cubic-bezier(.16,1,.3,1), opacity 0.35s ease';
+          card.style.transform  = 'rotateY(0deg) scale(1)';
+          card.style.opacity    = '1';
+        });
+      });
+ 
+      void img.offsetWidth;
+      img.classList.add('animate');
+ 
+      if (typeof launchConfetti === 'function') launchConfetti();
+    }, 260);
+  }
