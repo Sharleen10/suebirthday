@@ -1,4 +1,77 @@
-  // === FLOATING PARTICLES ===
+ // === MYSTERY COUNTDOWN ===
+  (function() {
+    const overlay  = document.getElementById('countdown-overlay');
+    const numEl    = document.getElementById('cd-number');
+    const msgEl    = document.getElementById('cd-message');
+    const progress = document.getElementById('cd-progress');
+    const flash    = document.getElementById('reveal-flash');
+    const cdHearts = document.getElementById('cd-hearts');
+    const CIRCUM   = 628; // 2 * pi * 100
+ 
+    const messages = [
+      'Close your eyes…',
+      'Take a deep breath…',
+      'Someone loves you very much…',
+      'Get ready, my love…',
+      '✨'
+    ];
+ 
+    // lock scroll
+    document.body.classList.add('locked');
+ 
+    // spawn soft hearts in the overlay
+    const heartSyms = ['❤️','💕','🩷','💗'];
+    for (let i = 0; i < 12; i++) {
+      const h = document.createElement('div');
+      h.className = 'cd-heart';
+      h.textContent = heartSyms[i % heartSyms.length];
+      h.style.left = (Math.random() * 90) + '%';
+      h.style.bottom = '-40px';
+      h.style.animationDuration  = (Math.random() * 8 + 6) + 's';
+      h.style.animationDelay     = (Math.random() * 8) + 's';
+      h.style.fontSize = (Math.random() * 0.8 + 0.8) + 'rem';
+      cdHearts.appendChild(h);
+    }
+ 
+    let count = 5;
+ 
+    function tick() {
+      // update message
+      msgEl.style.opacity = '0';
+      setTimeout(() => {
+        msgEl.textContent  = messages[5 - count];
+        msgEl.style.opacity = '1';
+      }, 300);
+ 
+      // update number
+      numEl.textContent = count;
+ 
+      // update ring — shrinks from full to empty over 5 ticks
+      const offset = CIRCUM * (1 - count / 5);
+      progress.style.strokeDashoffset = offset;
+ 
+      if (count === 0) {
+        // Flash and reveal
+        flash.classList.add('flash');
+        setTimeout(() => {
+          flash.classList.remove('flash');
+          overlay.classList.add('hidden');
+          document.body.classList.remove('locked');
+        }, 300);
+        return;
+      }
+ 
+      count--;
+      setTimeout(tick, 1000);
+    }
+ 
+    // small delay before starting so page is ready
+    setTimeout(tick, 600);
+  })();
+ 
+
+ 
+ // === FLOATING PARTICLES ===
   const pContainer = document.getElementById('particles');
   const colors = ['#e8607a','#c9a84c','#f7d6df','#f3e8d8','#fff'];
   for (let i = 0; i < 35; i++) {
