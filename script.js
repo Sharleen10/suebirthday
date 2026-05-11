@@ -212,7 +212,7 @@
       note.style.animation = 'reveal-in 0.6s cubic-bezier(.16,1,.3,1) forwards';
       btn.querySelector('span').textContent = 'Now playing... 🎵';
     } else {
-      btn.querySelector('span').textContent = 'Play my voice note';
+      btn.querySelector('span').textContent = 'Play your special song 🎵';
       document.getElementById('voice-audio').pause();
     }
   }
