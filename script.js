@@ -223,13 +223,11 @@
     const reveal = document.getElementById('secret-reveal');
     btn.style.display = 'none';
     reveal.style.display = 'block';
-    // Big confetti burst
+    // Single confetti burst
     launchConfetti();
-    setTimeout(launchConfetti, 800);
-    setTimeout(launchConfetti, 1600);
   }
- 
- 
+
+
   // === 5 SENSES NAVIGATION ===
   function nextSense(num) {
     // hide all cards
@@ -251,11 +249,31 @@
     card.offsetHeight; // reflow
     card.style.animation = '';
     // scroll into view smoothly
-    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // mini confetti on each reveal
-    launchConfetti();
+
   }
- 
+
+  function resetSenses() {
+    // hide all cards including final
+    document.querySelectorAll('.sense-card').forEach(el => {
+      el.classList.remove('active');
+      el.style.display = 'none';
+    });
+    // reset dots
+    document.querySelectorAll('.sdot').forEach((dot, i) => {
+      dot.classList.remove('active','done');
+      if (i === 0) dot.classList.add('active');
+    });
+    // show sense 1
+    const first = document.getElementById('sense-1');
+    first.style.display = 'flex';
+    first.classList.add('active');
+    first.style.animation = 'none';
+    first.offsetHeight;
+    first.style.animation = '';
+    // show dots again
+    document.getElementById('sense-dots').style.display = 'flex';
+  }
+
   function showFinalMessage() {
     document.querySelectorAll('.sense-card').forEach(el => {
       el.classList.remove('active');
@@ -271,11 +289,8 @@
     final.style.animation = 'none';
     final.offsetHeight;
     final.style.animation = '';
-    final.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // triple confetti burst
+    // single confetti burst
     launchConfetti();
-    setTimeout(launchConfetti, 600);
-    setTimeout(launchConfetti, 1300);
   }
  
   // === CONFETTI ===
@@ -340,30 +355,30 @@
  
   // ===== WISH DATA =====
   const birthdayWishes = [
-    { image:"pics/adventure.jpg",      title:"Adventure",      text:"May your 25th year be full of places and moments that take your breath away." },
+    { image:"pics/adventure.jpeg",      title:"Adventure",      text:"May your 25th year be full of places and moments that take your breath away." },
     { image:"pics/joy.jpeg",           title:"Joy",            text:"The kind of deep, quiet happiness that settles into your bones and stays." },
-    { image:"pics/growth.jpg",         title:"Growth",         text:"Every dream you're brave enough to chase — may it find you." },
-    { image:"pics/sweet.jpg",          title:"Sweetness",      text:"More cake, more laughter, more of all the things that make you smile." },
-    { image:"pics/rest.jpg",           title:"Rest",           text:"Permission to slow down, breathe, and simply be." },
-    { image:"pics/love.jpg",           title:"Love",           text:"All the love you give so freely — reflected back to you ten times over." },
-    { image:"pics/courage.jpg",        title:"Courage",        text:"The boldness to say yes to the things that scare you a little, those are the ones worth doing." },
-    { image:"pics/music.jpg",          title:"Music",          text:"May every song feel like it was written just for your soul." },
+    { image:"pics/growth1.jpeg",         title:"Growth",         text:"Every dream you're brave enough to chase — may it find you." },
+    { image:"pics/sweet1.jpeg",          title:"Sweetness",      text:"More cake, more laughter, more of all the things that make you smile." },
+    { image:"pics/rest1.jpeg",           title:"Rest",           text:"Permission to slow down, breathe, and simply be." },
+    { image:"pics/love1.jpeg",           title:"Love",           text:"All the love you give so freely — reflected back to you ten times over." },
+    { image:"pics/courage1.jpeg",        title:"Courage",        text:"The boldness to say yes to the things that scare you a little, those are the ones worth doing." },
+    { image:"pics/music1.jpeg",          title:"Music",          text:"May every song feel like it was written just for your soul." },
     { image:"pics/Beauty.jpeg",        title:"Beauty",         text:"The rare kind that lives inside you and shines through everything." },
-    { image:"pics/connection.jpg",     title:"Connection",     text:"Deeper conversations, truer friendships, and bonds that feel like home." },
-    { image:"pics/peace.jpg",          title:"Peace",          text:"A calm no chaos can touch. A quiet you can always return to." },
-    { image:"pics/clarity.jpg",        title:"Clarity",        text:"May everything you've been wondering finally make sense." },
+    { image:"pics/connections1.jpeg",     title:"Connection",     text:"Deeper conversations, truer friendships, and bonds that feel like home." },
+    { image:"pics/peace1.jpeg",          title:"Peace",          text:"A calm no chaos can touch. A quiet you can always return to." },
+    { image:"pics/clarity1.jpeg",        title:"Clarity",        text:"May everything you've been wondering finally make sense." },
     { image:"pics/creativity.jpeg",    title:"Creativity",     text:"Space to create, to colour outside the lines, and to express everything you feel inside." },
-    { image:"pics/horizons.jpg",       title:"Horizons",       text:"New places and new versions of you waiting ahead." },
-    { image:"pics/transformation.jpg", title:"Transformation", text:"This is not an ending — it's your beginning." },
+    { image:"pics/horizon1.jpeg",       title:"Horizons",       text:"New places and new versions of you waiting ahead." },
+    { image:"pics/transformation1.jpeg", title:"Transformation", text:"This is not an ending — it's your beginning." },
     { image:"pics/comfort.jpg",        title:"Comfort",        text:"Soft mornings and warm moments that feel like home." },
-    { image:"pics/success.jpg",        title:"Success",        text:"On your terms, in your time, in your way." },
-    { image:"pics/hope.jpg",           title:"Hope",           text:"Light always finds you, even in quiet moments." },
-    { image:"pics/belonging.jpg",      title:"Belonging",      text:"May you always know, without a single doubt, that you are deeply wanted and needed here." },
-    { image:"pics/strength.jpg",       title:"Strength",       text:"You are so much stronger than you know. May this year remind you of that every single day." },
-    { image:"pics/surprise.jpg",       title:"Surprise",       text:"The kind of unexpected moments that make your heart leap — the best stories always start that way." },
-    { image:"pics/warmth.jpg",         title:"Warmth",         text:"People who pour into you the way you pour into others. You deserve that overflow." },
-    { image:"pics/celebration.jpg",    title:"Celebration",    text:"More reasons to raise a glass, dance a little, and remember how good it is to be alive." },
-    { image:"pics/magic.jpg",          title:"Magic",          text:"The kind that doesn't need explanation — the feeling that something wonderful is always on its way." },
+    { image:"pics/success1.jpeg",        title:"Success",        text:"On your terms, in your time, in your way." },
+    { image:"pics/hope1.jpeg",           title:"Hope",           text:"Light always finds you, even in quiet moments." },
+    { image:"pics/belonging1.jpeg",      title:"Belonging",      text:"May you always know, without a single doubt, that you are deeply wanted and needed here." },
+    { image:"pics/strength1.jpeg",       title:"Strength",       text:"You are so much stronger than you know. May this year remind you of that every single day." },
+    { image:"pics/suprise1.jpeg",       title:"Surprise",       text:"The kind of unexpected moments that make your heart leap — the best stories always start that way." },
+    { image:"pics/warmth1.jpeg",         title:"Warmth",         text:"People who pour into you the way you pour into others. You deserve that overflow." },
+    { image:"pics/celebration1.jpeg",    title:"Celebration",    text:"More reasons to raise a glass, dance a little, and remember how good it is to be alive." },
+    { image:"pics/magic1.jpeg",          title:"Magic",          text:"The kind that doesn't need explanation — the feeling that something wonderful is always on its way." },
     { image:"pics/You.jpeg",           title:"You",            text:"Above all else — more of you. More of your light, your laugh, your love. The world needs every bit of it." }
   ];
  
