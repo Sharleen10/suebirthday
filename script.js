@@ -368,7 +368,7 @@
     { image:"pics/peace1.jpeg",          title:"Peace",          text:"A calm no chaos can touch. A quiet you can always return to." },
     { image:"pics/clarity1.jpeg",        title:"Clarity",        text:"May everything you've been wondering finally make sense." },
     { image:"pics/creativity.jpeg",    title:"Creativity",     text:"Space to create, to colour outside the lines, and to express everything you feel inside." },
-    { image:"pics/horizon1.jpeg",       title:"Horizons",       text:"New places and new versions of you waiting ahead." },
+    { image:"pics/horizons1.jpeg",       title:"Horizons",       text:"New places and new versions of you waiting ahead." },
     { image:"pics/transformation1.jpeg", title:"Transformation", text:"This is not an ending — it's your beginning." },
     { image:"pics/comfort.jpg",        title:"Comfort",        text:"Soft mornings and warm moments that feel like home." },
     { image:"pics/success1.jpeg",        title:"Success",        text:"On your terms, in your time, in your way." },
