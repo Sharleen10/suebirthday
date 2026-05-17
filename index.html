@@ -221,60 +221,16 @@
   <p class="secret-teaser">One more thing...</p>
   <div class="secret-dots"><span></span><span></span><span></span></div>
   <button class="secret-btn" id="secret-btn" onclick="revealSecret()">Click me 🎁</button>
- 
+
   <div class="secret-reveal" id="secret-reveal">
     <h2 class="secret-title">Happy 25th Birthday<br>My Love ❤️</h2>
     <p style="color:rgba(253,246,238,0.45);font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:2.5rem;">5 gifts · 5 senses · all for you</p>
- 
+
     <div class="senses-track" id="senses-track">
- 
-      <!-- Sense 1: Sound -->
+
+      <!-- Sense 1: Taste -->
       <div class="sense-card active" id="sense-1">
         <div class="sense-number">01 / 05</div>
-        <div class="sense-icon">👂</div>
-        <div class="sense-label">The Sense of Sound</div>
-        <div class="sense-clue">
-          Close your eyes for a moment...<br><br>
-          There is something waiting for you that speaks without words —
-          a melody that knows your name,
-          a sound that wraps around you like a warm embrace.<br><br>
-          <em>Listen closely, my love. Your ears will lead you there. 🎵</em>
-        </div>
-        <button class="sense-next-btn" onclick="nextSense(2)">Next gift &rarr;</button>
-      </div>
- 
-      <!-- Sense 2: Sight -->
-      <div class="sense-card" id="sense-2">
-        <div class="sense-number">02 / 05</div>
-        <div class="sense-icon">👁️</div>
-        <div class="sense-label">The Sense of Sight</div>
-        <div class="sense-clue">
-          Some things are meant to be seen and savoured slowly —<br><br>
-          a story told in pages, a shimmer worn close to the heart,
-          colours waiting patiently for your hands to bring them to life.<br><br>
-          <em>Open your eyes wide, my love. Beauty has been wrapped up just for you. ✨</em>
-        </div>
-        <button class="sense-next-btn" onclick="nextSense(3)">Next gift &rarr;</button>
-      </div>
- 
-      <!-- Sense 3: Smell -->
-      <div class="sense-card" id="sense-3">
-        <div class="sense-number">03 / 05</div>
-        <div class="sense-icon">🌸</div>
-        <div class="sense-label">The Sense of Smell</div>
-        <div class="sense-clue">
-          Memory lives in scent more than anywhere else —<br><br>
-          a flame that fills the room with warmth and wonder,
-          a fragrance that lingers on your skin like a secret,
-          a whisper that says: <em>you are cherished.</em><br><br>
-          <em>Breathe it in, my love. This one was made for you. 🕯️</em>
-        </div>
-        <button class="sense-next-btn" onclick="nextSense(4)">Next gift &rarr;</button>
-      </div>
- 
-      <!-- Sense 4: Taste -->
-      <div class="sense-card" id="sense-4">
-        <div class="sense-number">04 / 05</div>
         <div class="sense-icon">🍫</div>
         <div class="sense-label">The Sense of Taste</div>
         <div class="sense-clue">
@@ -284,9 +240,53 @@
           and just… smile.<br><br>
           <em>Go on, take a bite. You've earned every single piece. 🎂</em>
         </div>
+        <button class="sense-next-btn" onclick="nextSense(2)">Next gift &rarr;</button>
+      </div>
+
+      <!-- Sense 2: Smell -->
+      <div class="sense-card" id="sense-2">
+        <div class="sense-number">02 / 05</div>
+        <div class="sense-icon">🌸</div>
+        <div class="sense-label">The Sense of Smell</div>
+        <div class="sense-clue">
+          Memory lives in scent more than anywhere else —<br><br>
+          a flame that fills the room with warmth and wonder,
+          a fragrance that lingers on your skin like a secret,
+          a whisper that says: <em>you are cherished.</em><br><br>
+          <em>Breathe it in, my love. This one was made for you. 🕯️</em>
+        </div>
+        <button class="sense-next-btn" onclick="nextSense(3)">Next gift &rarr;</button>
+      </div>
+
+      <!-- Sense 3: Sight -->
+      <div class="sense-card" id="sense-3">
+        <div class="sense-number">03 / 05</div>
+        <div class="sense-icon">👁️</div>
+        <div class="sense-label">The Sense of Sight</div>
+        <div class="sense-clue">
+          Some things are meant to be seen and savoured slowly —<br><br>
+          a story told in pages, a shimmer worn close to the heart,
+          colours waiting patiently for your hands to bring them to life.<br><br>
+          <em>Open your eyes wide, my love. Beauty has been wrapped up just for you. ✨</em>
+        </div>
+        <button class="sense-next-btn" onclick="nextSense(4)">Next gift &rarr;</button>
+      </div>
+
+      <!-- Sense 4: Sound -->
+      <div class="sense-card" id="sense-4">
+        <div class="sense-number">04 / 05</div>
+        <div class="sense-icon">👂</div>
+        <div class="sense-label">The Sense of Sound</div>
+        <div class="sense-clue">
+          Close your eyes for a moment...<br><br>
+          There is something waiting for you that speaks without words —
+          a melody that knows your name,
+          a sound that wraps around you like a warm embrace.<br><br>
+          <em>Listen closely, my love. Your ears will lead you there. 🎵</em>
+        </div>
         <button class="sense-next-btn" onclick="nextSense(5)">Next gift &rarr;</button>
       </div>
- 
+
       <!-- Sense 5: Touch -->
       <div class="sense-card" id="sense-5">
         <div class="sense-number">05 / 05</div>
@@ -297,13 +297,13 @@
           a box that keeps precious things safe,
           something to hold your warmth on the coldest mornings,
           a little treasure chest for a girl who is, herself, a treasure.<br><br>
-          <em>Feel it, keep it, hold it close just like I hold you. 💍</em>
+          <em>Feel it, keep it, hold it close — just like I hold you. 💍</em>
         </div>
         <button class="sense-next-btn" onclick="showFinalMessage()" style="background:linear-gradient(135deg,#e8607a,#c94060);border:none;color:#fff;box-shadow:0 8px 30px rgba(232,96,122,0.4);">
           Finish 🎉
         </button>
       </div>
- 
+
       <!-- Final message -->
       <div class="sense-card" id="sense-final">
         <div class="sense-icon" style="font-size:3rem;">❤️</div>
@@ -311,14 +311,14 @@
         <div class="sense-clue" style="font-size:1.1rem;line-height:1.9;">
           Five senses. Five gifts. One reason.<br><br>
           Because you deserve to be celebrated
-          in every way imaginable 
+          in every way imaginable —
           and even that is not enough.<br><br>
           <em>Happy 25th birthday, my love.<br>Cheers to you. 🥂</em>
         </div>
       </div>
- 
+
     </div>
- 
+
     <!-- Progress dots -->
     <div class="sense-dots" id="sense-dots">
       <span class="sdot active" id="dot-1"></span>
@@ -327,7 +327,7 @@
       <span class="sdot" id="dot-4"></span>
       <span class="sdot" id="dot-5"></span>
     </div>
- 
+
   </div>
 </section>
 
