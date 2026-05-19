@@ -384,38 +384,51 @@
  
   let currentWishIndex = 0;
  
+  
   // ===== NEXT WISH (PAGE-FLIP FEEL) =====
   function nextWish() {
     currentWishIndex++;
-    if (currentWishIndex >= birthdayWishes.length) currentWishIndex = 0;
- 
+    const isReset = currentWishIndex >= birthdayWishes.length;
+    if (isReset) currentWishIndex = 0;
+
     const wish  = birthdayWishes[currentWishIndex];
     const img   = document.getElementById('wish-image');
     const title = document.getElementById('wish-title');
     const text  = document.getElementById('wish-text');
     const card  = document.querySelector('.wish-reveal-card');
- 
+
     // Page-flip: tilt card away
     card.style.transition = 'transform 0.25s ease, opacity 0.25s ease';
     card.style.transform  = 'rotateY(90deg) scale(0.95)';
     card.style.opacity    = '0.3';
- 
+
     title.classList.add('fade');
     text.classList.add('fade');
     img.classList.remove('animate');
- 
+
     setTimeout(() => {
       // Swap content
       document.getElementById('wish-counter').textContent =
         String(currentWishIndex + 1).padStart(2,'0') + ' / 25';
- 
+
       img.src        = wish.image;
       title.textContent = wish.title;
       text.textContent  = wish.text;
- 
+
       title.classList.remove('fade');
       text.classList.remove('fade');
- 
+
+      // Update button label
+      const btn = document.querySelector('.wish-next-btn');
+      if (isReset) {
+        btn.textContent = 'Starting over... ';
+        setTimeout(() => { btn.textContent = 'Reveal another wish'; }, 1200);
+      } else if (currentWishIndex === birthdayWishes.length - 1) {
+        btn.textContent = 'One last wish 💖';
+      } else {
+        btn.textContent = 'Reveal another wish';
+      }
+
       // Flip card back in
       card.style.transform = 'rotateY(-90deg) scale(0.95)';
       requestAnimationFrame(() => {
@@ -425,13 +438,14 @@
           card.style.opacity    = '1';
         });
       });
- 
+
       void img.offsetWidth;
       img.classList.add('animate');
- 
-      if (typeof launchConfetti === 'function') launchConfetti();
+
+
     }, 260);
   }
+
 
    // === SCROLL TO TOP VISIBILITY ===
   const scrollTopBtn = document.getElementById('scroll-top');
